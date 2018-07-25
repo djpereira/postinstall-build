@@ -1,5 +1,5 @@
 {
-  "name": "@djpereira/postinstall-build",
+  "name": "djpereira-postinstall-build",
   "version": "5.0.2",
   "description": "Helper for conditionally building your npm package on postinstall in order to support git installs.",
   "repository": {

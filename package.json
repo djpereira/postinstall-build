@@ -1,13 +1,13 @@
 {
-  "name": "postinstall-build",
-  "version": "5.0.1",
+  "name": "@djpereira/postinstall-build",
+  "version": "5.0.2",
   "description": "Helper for conditionally building your npm package on postinstall in order to support git installs.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/exogen/postinstall-build.git"
+    "url": "https://github.com/djpereira/postinstall-build.git"
   },
   "bugs": {
-    "url": "https://github.com/exogen/postinstall-build/issues"
+    "url": "https://github.com/djpereira/postinstall-build/issues"
   },
   "main": "index.js",
   "bin": {

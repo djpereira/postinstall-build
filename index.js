@@ -3,7 +3,7 @@ var path = require('path')
 var spawn = require('child_process').spawn
 
 // Use `spawn` to make a better `exec` without stdio buffering.
-function exec (command, options, callback) {
+function exec(command, options, callback) {
   // Copied from npm's lib/utils/lifecycle.js
   var sh = 'sh'
   var shFlag = '-c'
@@ -30,11 +30,11 @@ function exec (command, options, callback) {
   var proc = spawn(sh, [shFlag, command], shOpts)
   var done = false
 
-  function procKill () {
+  function procKill() {
     proc.kill()
   }
 
-  function procDone (err) {
+  function procDone(err) {
     if (!done) {
       done = true
       process.removeListener('SIGTERM', procKill)
@@ -65,13 +65,13 @@ function exec (command, options, callback) {
 // any process that is reading our output through a pipe would potentially get
 // truncated output, because the pipe would be closed before it could be read.
 // See: https://github.com/nodejs/node-v0.x-archive/issues/3737
-function safeExit (code) {
+function safeExit(code) {
   process.on('exit', function () {
     process.exit(code)
   })
 }
 
-function postinstallBuild () {
+function postinstallBuild() {
   var CWD = process.cwd()
   var POSTINSTALL_BUILD_CWD = process.env.POSTINSTALL_BUILD_CWD || ''
 
@@ -193,10 +193,10 @@ function postinstallBuild () {
   // we still might want to prune if certain flags indicate that only production
   // dependencies were requested.
   var isProduction = (process.env.npm_config_production === 'true' &&
-                      process.env.npm_config_only !== 'development' &&
-                      process.env.npm_config_only !== 'dev')
+    process.env.npm_config_only !== 'development' &&
+    process.env.npm_config_only !== 'dev')
   var isOnlyProduction = (process.env.npm_config_only === 'production' ||
-                          process.env.npm_config_only === 'prod')
+    process.env.npm_config_only === 'prod')
   var shouldPrune = isDependency || isProduction || isOnlyProduction
 
   var getInstallArgs = function () {
@@ -241,7 +241,7 @@ function postinstallBuild () {
   }
 
   var warnUserAgent = function () {
-    if (npmVersion && !/^(3\.|4\.0\.)/.test(npmVersion)) {
+    if (npmVersion && !/^(3\.|6\.|4\.0\.)/.test(npmVersion)) {
       log.warn(
         'postinstall-build:\n  This version of npm (' + npmVersion + ') may ' +
         'not be compatible with postinstall-build! There\n  are outstanding ' +
